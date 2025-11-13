@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZERICLEAN Launderers & Cleaners | Embakasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } 
+
+        :root {
+            --primary-color: #00d4d4;
+            --secondary-color: #ff1493;
+            --accent-color: #6b46c1;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============================================
+           HEADER STYLES - FIXED
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: turquoise;
+            width: 100%;
+            z-index: 999;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .logo-subtitle {
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: #1f2937;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .header-contact i {
+            font-size: 1.1rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* ============================================
+           HERO SECTION WITH FULL BACKGROUND IMAGE
+           ============================================ */
+        .hero {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.98;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+            font-size: 1.05rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .promo-banner {
+            background: var(--accent-color);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 40px rgba(245, 158, 11, 0.4);
+            animation: fadeInUp 0.8s ease 0.6s both, pulse 2s infinite 1s;
+        }
+
+        .promo-banner i {
+            font-size: 1.5rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* ============================================
+           SECTION STYLES
+           ============================================ */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+        }
+
+        /* ============================================
+           ABOUT SECTION WITH ALTERNATING LAYOUT
+           ============================================ */
+        .about {
+            background: var(--bg-white);
+        }
+
+        .about-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-intro h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-intro p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .about-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .about-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .about-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .about-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            height: 400px;
+        }
+
+        .about-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text-content {
+            padding: 1rem;
+        }
+
+        .about-text-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text-content p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .about-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .about-features-list i {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            width: 30px;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services {
+            background: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card.featured {
+            border: 2px solid var(--primary-color);
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+        }
+
+        .service-features i {
+            color: var(--secondary-color);
+            font-size: 0.875rem;
+        }
+
+        /* ============================================
+           PRICING SECTION
+           ============================================ */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: relative;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .price {
+            margin-bottom: 2rem;
+        }
+
+        .price .currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+        }
+
+        .price .amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price .period {
+            font-size: 1.125rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features i {
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+
+        .promotions-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
+        }
+
+        .promo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .promo-item i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .promo-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .promo-item p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* ============================================
+           TESTIMONIALS SECTION
+           ============================================ */
+        .testimonials {
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .stars {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .stars i {
+            margin-right: 0.25rem;
+        }
+
+        .testimonial-card p {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-author h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-dark);
+        }
+
+        .testimonial-author span {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+       /* CONTACT SECTION STYLES */
+.contact {
+    background: var(--bg-light);
+}
+
+.contact-layout {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Contact Information - Vertical List without boxes */
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.contact-info-item:hover {
+    transform: translateX(10px);
+}
+
+.contact-info-item:hover h4,
+.contact-info-item:hover p {
+    color: var(--primary-color);
+}
+
+.contact-info-item:hover a {
+    color: var(--secondary-color);
+}
+
+.contact-info-item i {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.contact-info-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.contact-info-item p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.contact-info-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-info-item a:hover {
+    text-decoration: underline;
+}
+
+/* Follow Us Section - Horizontal */
+.follow-us-section {
+    text-align: center;
+    padding: 2.5rem 0;
+    border-top: 2px solid var(--border-color);
+}
+
+.follow-us-section h4 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.social-icons-horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-icons-horizontal a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    padding: 1rem;
+}
+
+.social-icons-horizontal a:hover {
+    transform: translateY(-5px);
+}
+
+.social-icons-horizontal a i {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons-horizontal a:hover i {
+    box-shadow: 0 8px 20px rgba(0, 212, 212, 0.4);
+    transform: scale(1.1);
+}
+
+.social-icons-horizontal a span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.social-icons-horizontal a:hover span {
+    color: var(--primary-color);
+}
+
+/* CONTACT MODAL STYLES */
+.contact-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.contact-modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 550px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-modal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px 16px 0 0;
+}
+
+.contact-modal-header-text h4 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.contact-modal-header-text p {
+    margin: 0.5rem 0 0 0;
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+.contact-modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.75rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.contact-modal-close:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: rotate(90deg);
+}
+
+.contact-modal-body {
+    padding: 2.5rem;
+}
+
+.contact-widget-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.contact-widget-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.contact-widget-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-widget-form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.contact-widget-form-group input,
+.contact-widget-form-group select,
+.contact-widget-form-group textarea {
+    padding: 0.9rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: var(--bg-white);
+}
+
+.contact-widget-form-group input:focus,
+.contact-widget-form-group select:focus,
+.contact-widget-form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 212, 212, 0.1);
+}
+
+.contact-widget-form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-widget-submit-btn {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 212, 212, 0.3);
+}
+
+.contact-widget-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 212, 0.4);
+}
+
+.contact-widget-submit-btn:active {
+    transform: translateY(0);
+}
+
+.contact-widget-form-message {
+    display: none;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.contact-widget-form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section h3 i {
+            color: var(--primary-color);
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-section ul li i {
+            width: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ============================================
+           MOBILE RESPONSIVE STYLES
+           ============================================ */
+        @media (max-width: 968px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: turquoise;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 0;
+            }
+
+            .nav ul li {
+                padding: 0.75rem 1.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                width: 100%;
+            }
+
+            .header-contact {
+                display: none;
+            }
+
+            .logo-title {
+                font-size: 1.2rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.55rem;
+            }
+
+            .logo img {
+                height: 40px;
+                max-width: 60px;
+            }
+
+            .hero {
+                background-attachment: scroll;
+                min-height: 80vh;
+                width: 100%;
+                background-size: cover;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .about-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .about-image-container {
+                height: 300px;
+            }
+
+            .services-grid,
+            .pricing-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-modal-content {
+                 max-width: 90%;
+                }
+            .contact-widget-form-row {
+                grid-template-columns: 1fr;
+            }
+            .social-icons-horizontal {
+                 gap: 1.5rem;
+                }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .promotions-display {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-window {
+                width: 300px;
+                height: 400px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 480px) {
+            @media (max-width: 480px) {
+    
+    
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .promo-banner {
+                font-size: 0.875rem;
+                padding: 0.75rem 1.5rem;
+            }
+
+            .btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.938rem;
+            }
+
+            .contact-info-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info-item:hover {
+                transform: translateY(-5px);
+            }
+    
+    /* Contact Info Items - Stack vertically on small screens */
+.contact-info-item {
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
+}
+
+.contact-info-item i {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+}
+
+.contact-info-item h4 {
+    font-size: 1.1rem;
+}
+
+.contact-info-item p {
+    font-size: 0.95rem;
+}
+
+/* Follow Us Section - Ultra compact for small screens */
+.follow-us-section {
+    padding: 1.5rem 0;
+}
+
+.follow-us-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.social-icons-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    padding: 0 0.5rem;
+}
+
+.social-icons-horizontal a {
+    padding: 0.4rem;
+    flex: 1;
+    max-width: 70px;
+}
+
+.social-icons-horizontal a i {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+}
+
+.social-icons-horizontal a span {
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+    .contact-modal-header-text h4 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-modal-body {
+        padding: 1.5rem;
+    }
+    
+    .contact-modal-content {
+        max-width: 95%;
+    }
+            .logo-title {
+                font-size: 1rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.5rem;
+            }
+        }
+        /* Contact Modal adjustments */
+.contact-modal-header {
+    padding: 1.5rem;
+}
+
+.contact-modal-header-text h4 {
+    font-size: 1.25rem;
+}
+
+.contact-modal-header-text p {
+    font-size: 0.9rem;
+}
+
+.contact-modal-body {
+    padding: 1.5rem;
+}
+
+.contact-modal-content {
+    max-width: 95%;
+}
+
+.contact-modal-close {
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
+}
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER WITH NAVIGATION   
+         ============================================ -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=180&h=50&fit=crop" alt="Zericlean Logo">
+                <div class="logo-text">
+                    <div class="logo-title">ZERICLEAN</div>
+                    <div class="logo-subtitle">LAUNDERERS & CLEANERS</div>
+                </div>
+            </div>
+            <nav class="nav" id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <i class="fas fa-phone"></i>
+                <span>0720063248</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION WITH FULL BACKGROUND IMAGE
+         ============================================ -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Fresh, Clean Laundry Made Easy</h1>
+            <p class="hero-subtitle">Professional laundry services with free pickup and delivery in Embakasi. Your time is valuable - let us handle the wash!</p>
+            <div class="hero-cta">
+                <a href="#services" class="btn btn-primary">View Services</a>
+                <a href="#contact" class="btn btn-secondary">Schedule Pickup</a>
+            </div>
+            <!-- Promotion Banner -->
+            <div class="promo-banner">
+                <i class="fas fa-gift"></i>
+                <span><strong>First-Time Customer Special:</strong> Get 20% OFF your first order!</span>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- ============================================
+         SERVICES SECTION
+         ============================================ -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Professional laundry solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Wash & Fold</h3>
+                    <p>Drop off your laundry and we'll wash, dry, and fold it to perfection. Same-day service available.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Premium detergents</li>
+                        <li><i class="fas fa-check"></i> Fabric softener included</li>
+                        <li><i class="fas fa-check"></i> Same-day turnaround</li>
+                    </ul>
+                </div>
+                <div class="service-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Pickup & Delivery</h3>
+                    <p>Schedule a pickup and we'll collect, clean, and deliver your laundry right to your door.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Free pickup & delivery</li>
+                        <li><i class="fas fa-check"></i> Flexible scheduling</li>
+                        <li><i class="fas fa-check"></i> Real-time updates</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3>Dry Cleaning</h3>
+                    <p>Expert care for your delicate garments, suits, and special occasion wear.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Professional pressing</li>
+                        <li><i class="fas fa-check"></i> Stain removal</li>
+                        <li><i class="fas fa-check"></i> Garment protection</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3>Duvet & Linens</h3>
+                    <p>Large items like comforters, duvets, and curtains cleaned with care.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Deep cleaning</li>
+                        <li><i class="fas fa-check"></i> Fresh and fluffy</li>
+                        <li><i class="fas fa-check"></i> Quick turnaround</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRICING SECTION
+         ============================================ -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>No hidden fees - just clean clothes at fair prices</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic Plan</h3>
+                    <div class="price">
+                        <span class="currency">KES</span>
+                        <span class="amount">150</span>
+                        <span class="period">/kg</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Wash & Fold Service</li>
+                        <li><i class="fas fa-check"></i> Standard Detergent</li>
+                        <li><i class="fas fa-check"></i> 24-Hour Turnaround</li>
+                        <li><i class="fas fa-check"></i> Free Delivery</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Best Value</div>
+                    <h3>Premium Plan</h3>
+                    <div class="price">
+                        <span class="currency">KES</span>
+                        <span class="amount">200</span>
+                        <span class="period">/kg</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Basic</li>
+                        <li><i class="fas fa-check"></i> Same-Day Service</li>
+                        <li><i class="fas fa-check"></i> Premium Detergents</li>
+                        <li><i class="fas fa-check"></i> Stain Treatment</li>
+                        <li><i class="fas fa-check"></i> Priority Handling</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Express Service</h3>
+                    <div class="price">
+                        <span class="currency">KES</span>
+                        <span class="amount">250</span>
+                        <span class="period">/kg</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Premium</li>
+                        <li><i class="fas fa-check"></i> 3-Hour Turnaround</li>
+                        <li><i class="fas fa-check"></i> Priority Processing</li>
+                        <li><i class="fas fa-check"></i> Perfect for Urgent Needs</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+            <!-- Promotions Display -->
+            <div class="promotions-display">
+                <div class="promo-item">
+                    <i class="fas fa-star"></i>
+                    <div>
+                        <h4>Loyalty Rewards</h4>
+                        <p>Regular customers get special discounts and priority service!</p>
+                    </div>
+                </div>
+                <div class="promo-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h4>Referral Bonus</h4>
+                        <p>Refer a friend and both get discount on your next order.</p>
+                    </div>
+                </div>
+                <div class="promo-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <div>
+                        <h4>Bulk Discounts</h4>
+                        <p>Large loads? Get special pricing for bulk laundry!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- ============================================
+         ABOUT SECTION WITH ALTERNATING IMAGES
+         ============================================ -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-intro">
+                <h2>Why choose Zericlean</h2>
+                <p>Your trusted laundry and dry cleaning partner in Embakasi, Nairobi. We combine modern equipment with expert care to deliver exceptional results every time.</p>
+            </div>
+
+            <!-- About Item 1 - Image Left -->
+            <div class="about-item">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&h=600&fit=crop" alt="Commercial washing machines">
+                </div>
+                <div class="about-text-content">
+                    <h3>State-of-the-Art Equipment</h3>
+                    <p>We invest in the best commercial washing and drying equipment to ensure your clothes receive professional-grade care. Our industrial machines can handle everything from delicate fabrics to heavy-duty items with precision and efficiency.</p>
+                    <p>Each load is carefully monitored for optimal washing temperature, detergent levels, and cycle duration to protect your garments while achieving exceptional cleanliness.</p>
+                    <ul class="about-features-list">
+                        <li><i class="fas fa-check-circle"></i> High-capacity commercial washers</li>
+                        <li><i class="fas fa-check-circle"></i> Energy-efficient drying systems</li>
+                        <li><i class="fas fa-check-circle"></i> Temperature-controlled washing</li>
+                        <li><i class="fas fa-check-circle"></i> Gentle on all fabric types</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- About Item 2 - Image Right -->
+            <div class="about-item">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&h=600&fit=crop" alt="Professional pressing service">
+                </div>
+                <div class="about-text-content">
+                    <h3>Professional Steam Pressing</h3>
+                    <p>Our professional steam pressing service ensures your clothes look crisp and professional. We use industrial-grade steam irons and pressing equipment to achieve perfect results on shirts, dresses, suits, and all your formal wear.</p>
+                    <p>Every garment is hand-pressed by our skilled team who understand the specific requirements of different fabrics and styles, ensuring your clothes always look their absolute best.</p>
+                    <ul class="about-features-list">
+                        <li><i class="fas fa-check-circle"></i> Professional steam pressing technology</li>
+                        <li><i class="fas fa-check-circle"></i> Wrinkle-free guarantee</li>
+                        <li><i class="fas fa-check-circle"></i> Collar and cuff perfection</li>
+                        <li><i class="fas fa-check-circle"></i> Safe for delicate fabrics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- About Item 3 - Image Left -->
+            <div class="about-item">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=800&h=600&fit=crop" alt="Wash and fold service">
+                </div>
+                <div class="about-text-content">
+                    <h3>Expert Wash & Fold Service</h3>
+                    <p>Perfect for families and busy professionals, our wash and fold service handles all your everyday laundry needs. We sort, wash, dry, and expertly fold your clothes so they come back fresh, clean, and neatly organized.</p>
+                    <p>From t-shirts and jeans to towels and bed linens, we treat every item with care and attention to detail, using premium detergents that are tough on stains but gentle on fabrics.</p>
+                    <ul class="about-features-list">
+                        <li><i class="fas fa-check-circle"></i> Sorted by color and fabric type</li>
+                        <li><i class="fas fa-check-circle"></i> Premium eco-friendly detergents</li>
+                        <li><i class="fas fa-check-circle"></i> Expertly folded and organized</li>
+                        <li><i class="fas fa-check-circle"></i> Perfect for everyday wear</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- About Item 4 - Image Right -->
+            <div class="about-item">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop" alt="Duvet and linen cleaning">
+                </div>
+                <div class="about-text-content">
+                    <h3>Duvet & Large Items Cleaning</h3>
+                    <p>Our commercial equipment makes it easy to professionally clean large items like duvets, comforters, blankets, towels, and bed linens. We use special wash cycles designed specifically for bulky items to ensure thorough cleaning while maintaining softness.</p>
+                    <p>Your bedding will come back fresh, fluffy, and perfectly clean, giving you the comfort of knowing you're sleeping on professionally cleaned linens.</p>
+                    <ul class="about-features-list">
+                        <li><i class="fas fa-check-circle"></i> Deep cleaning for large items</li>
+                        <li><i class="fas fa-check-circle"></i> Maintains fabric softness</li>
+                        <li><i class="fas fa-check-circle"></i> Hygienic and fresh results</li>
+                        <li><i class="fas fa-check-circle"></i> Properly dried and folded</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- About Item 5 - Image Left -->
+            <div class="about-item">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=800&h=600&fit=crop" alt="Eco-friendly cleaning">
+                </div>
+                <div class="about-text-content">
+                    <h3>Eco-Friendly Practices</h3>
+                    <p>We care about the environment as much as we care about your clothes. Our plant-based detergents are biodegradable, hypoallergenic, and tough on stains while being gentle on fabrics and the planet.</p>
+                    <p>We use energy-efficient machines and water-saving technologies to minimize our environmental footprint while delivering exceptional cleaning results for our customers.</p>
+                    <ul class="about-features-list">
+                        <li><i class="fas fa-check-circle"></i> Biodegradable detergents</li>
+                        <li><i class="fas fa-check-circle"></i> Energy-efficient equipment</li>
+                        <li><i class="fas fa-check-circle"></i> Water-saving technology</li>
+                        <li><i class="fas fa-check-circle"></i> Safe for sensitive skin</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- About Item 6 - Image Right -->
+            <div class="about-item">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=600&fit=crop" alt="Free delivery service">
+                </div>
+                <div class="about-text-content">
+                    <h3>Free Pickup & Delivery</h3>
+                    <p>We understand your time is valuable. That's why we offer complimentary pickup and delivery service throughout Embakasi. Simply call or WhatsApp us at 0720063248, and we'll come to your location to collect your laundry.</p>
+                    <p>Once your items are cleaned, pressed, and packaged, we'll deliver them right back to your doorstep—fresh, clean, and ready to use. Convenience is our priority!</p>
+                    <ul class="about-features-list">
+                        <li><i class="fas fa-check-circle"></i> Free pickup within Embakasi</li>
+                        <li><i class="fas fa-check-circle"></i> Same-day service available</li>
+                        <li><i class="fas fa-check-circle"></i> Call or WhatsApp: 0720063248</li>
+                        <li><i class="fas fa-check-circle"></i> Flexible scheduling options</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         TESTIMONIALS SECTION
+         ============================================ -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Real reviews from satisfied customers in Embakasi</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Zericlean has been a lifesaver! The pickup and delivery service is so convenient, and my clothes always come back perfectly clean and folded. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div>
+                            <h4>Sarah Mwangi</h4>
+                            <span>Regular Customer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"As a business owner, I need reliable laundry service. Zericlean delivers quality and consistency every single time. Great pricing too!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JK</div>
+                        <div>
+                            <h4>John Kamau</h4>
+                            <span>Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The staff is friendly and professional. They got a tough stain out of my favorite dress. Customer service is outstanding!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div>
+                            <h4>Anne Mutua</h4>
+                            <span>Loyal Customer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+   <!-- CONTACT SECTION -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>We're here to help with all your laundry needs</p>
+        </div>
+        
+        <div class="contact-layout">
+            <!-- Contact Information - Vertical List -->
+            <div class="contact-info-list">
+                <div class="contact-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Visit Us</h4>
+                        <p>Fedha Road, Opposite Aviation College, Embakasi, Nairobi</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p><a href="tel:+254720063248">0720063248</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:info@zericlean.com">info@zericlean.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Business Hours</h4>
+                        <p>Mon-Sat: 7:00 AM - 8:00 PM<br>Sunday: 8:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Follow Us - Horizontal -->
+            <div class="follow-us-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons-horizontal">
+                    <a href="#" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Message Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <button class="btn btn-primary open-contact-btn" id="openContactForm" style="padding: 1.2rem 3rem; font-size: 1.1rem;">
+                <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                Send Us a Message
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div class="contact-modal" id="contactModal">
+    <div class="contact-modal-content">
+        <div class="contact-modal-header">
+            <div class="contact-modal-header-text">
+                <h4>Send Us a Message</h4>
+                <p>We'll get back to you within 24 hours!</p>
+            </div>
+            <button class="contact-modal-close" id="closeContactModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="contact-modal-body">
+            <form class="contact-widget-form" id="contactWidgetForm">
+                <div class="contact-widget-form-row">
+                    <div class="contact-widget-form-group">
+                        <label for="contactName">Full Name *</label>
+                        <input type="text" id="contactName" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="contact-widget-form-group">
+                        <label for="contactPhone">Phone *</label>
+                        <input type="tel" id="contactPhone" name="phone" placeholder="0712 345 678" required>
+                    </div>
+                </div>
+                <div class="contact-widget-form-group">
+                    <label for="contactEmail">Email Address *</label>
+                    <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="contact-widget-form-group">
+                    <label for="contactService">Service Interested In</label>
+                    <select id="contactService" name="service">
+                        <option value="">Select a service</option>
+                        <option value="wash-fold">Wash & Fold</option>
+                        <option value="pickup-delivery">Pickup & Delivery</option>
+                        <option value="dry-cleaning">Dry Cleaning</option>
+                        <option value="duvet-linen">Duvet & Linen</option>
+                        <option value="express">Express Service</option>
+                    </select>
+                </div>
+                <div class="contact-widget-form-group">
+                    <label for="contactMessage">Your Message *</label>
+                    <textarea id="contactMessage" name="message" placeholder="Tell us about your laundry needs..." required></textarea>
+                </div>
+                <button type="submit" class="contact-widget-submit-btn">Send Message</button>
+                <div id="contactWidgetFormMessage" class="contact-widget-form-message"></div>
+            </form>
+        </div>
+    </div>
+</div>
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-water"></i> Zericlean</h3>
+                    <p>Your trusted partner for professional laundry services in Embakasi. Clean clothes, happy customers.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Wash & Fold</a></li>
+                        <li><a href="#services">Pickup & Delivery</a></li>
+                        <li><a href="#services">Dry Cleaning</a></li>
+                        <li><a href="#services">Duvet & Linen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Fedha Road, Embakasi</li>
+                        <li><i class="fas fa-phone"></i> 0720063248</li>
+                        <li><i class="fas fa-envelope"></i> info@zericlean.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Zericlean Launderers & Cleaners. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    mainNav.classList.remove('active');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Contact Form Modal - FIXED
+document.addEventListener('DOMContentLoaded', function() {
+    const openContactFormBtn = document.getElementById('openContactForm');
+    const contactModal = document.getElementById('contactModal');
+    const closeContactModal = document.getElementById('closeContactModal');
+    const contactWidgetForm = document.getElementById('contactWidgetForm');
+    const contactWidgetFormMessage = document.getElementById('contactWidgetFormMessage');
+
+    // Open modal when button is clicked
+    if (openContactFormBtn) {
+        openContactFormBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Button clicked'); // Debug log
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Close modal when close button is clicked
+    if (closeContactModal) {
+        closeContactModal.addEventListener('click', function() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close modal when clicking outside the form
+    if (contactModal) {
+        contactModal.addEventListener('click', function(e) {
+            if (e.target === contactModal) {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Handle form submission
+    if (contactWidgetForm) {
+        contactWidgetForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            contactWidgetFormMessage.textContent = 'Thank you! We will get back to you within 24 hours.';
+            contactWidgetFormMessage.classList.add('success');
+            contactWidgetFormMessage.style.display = 'block';
+            
+            // Reset form
+            contactWidgetForm.reset();
+            
+            // Auto-close the modal after 3 seconds
+            setTimeout(() => {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                contactWidgetFormMessage.style.display = 'none';
+            }, 3000);
+        });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
+        // Pricing Card Hover Effect
+        const pricingCards = document.querySelectorAll('.pricing-card');
+        pricingCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('featured')) {
+                    this.style.transform = 'translateY(-10px)';
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('featured')) {
+                    this.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Service Card Animations on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .testimonial-card, .pricing-card, .about-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
